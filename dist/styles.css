@@ -788,10 +788,14 @@ details p {
 }
 
 .final-cta-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.65fr);
   gap: 32px;
   align-items: center;
-  justify-content: space-between;
+}
+
+.final-cta-copy {
+  min-width: 0;
 }
 
 .final-cta h2 {
@@ -802,6 +806,24 @@ details p {
 
 .final-cta .section-kicker {
   color: var(--lime);
+}
+
+.final-cta-brand {
+  display: grid;
+  gap: 22px;
+  justify-items: end;
+  min-width: 0;
+}
+
+.final-cta-brand .final-actions {
+  justify-content: flex-end;
+}
+
+.final-logo-lockup {
+  width: min(380px, 100%);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 35px rgba(0, 229, 117, 0.25));
 }
 
 .site-footer {
@@ -910,6 +932,12 @@ details p {
     align-items: flex-start;
   }
 
+  .final-cta-brand,
+  .final-cta-brand .final-actions {
+    justify-items: start;
+    justify-content: flex-start;
+  }
+
   .footer-inner p {
     text-align: left;
   }
@@ -952,6 +980,16 @@ details p {
     width: 100%;
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .final-cta-brand {
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .final-logo-lockup {
+    width: min(320px, 100%);
+    justify-self: center;
   }
 
   .button {
