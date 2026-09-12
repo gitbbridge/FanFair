@@ -154,6 +154,10 @@ a {
   color: var(--lime-dark);
 }
 
+.site-nav .nav-current {
+  color: var(--neon-emerald);
+}
+
 .nav-cta {
   padding: 11px 18px;
   color: var(--vault-black) !important;
@@ -1155,6 +1159,155 @@ details p {
   filter: drop-shadow(0 0 35px rgba(0, 229, 117, 0.25));
 }
 
+.contact-page {
+  background:
+    radial-gradient(circle at 18% 4%, rgba(0, 229, 117, 0.14), transparent 25rem),
+    linear-gradient(180deg, var(--absolute-black) 0%, var(--vault-black) 58%, var(--absolute-black) 100%);
+}
+
+.contact-hero {
+  position: relative;
+  display: grid;
+  min-height: min(760px, calc(100vh - 74px));
+  overflow: hidden;
+  color: var(--pure-white);
+  isolation: isolate;
+}
+
+.contact-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.70)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.72));
+}
+
+.contact-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: inherit;
+  padding: 74px 0 100px;
+}
+
+.contact-hero-content h1 {
+  max-width: 780px;
+}
+
+.contact-hero-content p:not(.section-kicker) {
+  max-width: 620px;
+  color: var(--light-silver);
+  font-size: clamp(1.04rem, 1.7vw, 1.28rem);
+}
+
+.contact-directory {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
+  gap: 18px;
+  padding: 96px 0;
+}
+
+.contact-lead,
+.contact-card,
+.contact-action {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.contact-lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 4.4vw, 54px);
+  background:
+    linear-gradient(145deg, rgba(0, 229, 117, 0.09), transparent 42%),
+    var(--carbon-black);
+}
+
+.contact-lead h2 {
+  margin-bottom: 18px;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-card {
+  display: grid;
+  align-content: space-between;
+  min-height: 180px;
+  padding: 26px;
+  background: var(--carbon-black);
+}
+
+.contact-card span {
+  margin-bottom: 24px;
+  color: var(--platinum-grey);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contact-card a {
+  color: var(--pure-white);
+  font-family: "Inter Tight", Inter, sans-serif;
+  font-size: clamp(1.28rem, 2.3vw, 2rem);
+  font-weight: 850;
+  line-height: 1.06;
+  overflow-wrap: anywhere;
+  transition: color 160ms ease;
+}
+
+.contact-card a:hover {
+  color: var(--neon-emerald);
+}
+
+.contact-address {
+  grid-column: span 2;
+  min-height: 220px;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 117, 0.14), transparent 48%),
+    var(--absolute-black);
+  border-color: rgba(0, 229, 117, 0.45);
+}
+
+.contact-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(28px, 5vw, 52px);
+  margin-bottom: 96px;
+  background: var(--absolute-black);
+}
+
+.contact-action h2 {
+  margin-bottom: 0;
+}
+
+.contact-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
 .site-footer {
   padding: 48px 0;
   color: var(--platinum-grey);
@@ -1220,6 +1373,8 @@ details p {
   .split-intro,
   .verify-section,
   .demo-section,
+  .contact-directory,
+  .contact-action,
   .market-wrap,
   .comparison-section,
   .faq-section,
@@ -1253,6 +1408,14 @@ details p {
 
   .comparison-section {
     align-items: stretch;
+  }
+
+  .contact-hero {
+    min-height: 680px;
+  }
+
+  .contact-action-buttons {
+    justify-content: flex-start;
   }
 
   .demo-intro {
@@ -1314,6 +1477,7 @@ details p {
 
   .hero-actions,
   .demo-actions,
+  .contact-action-buttons,
   .final-actions,
   .footer-links {
     width: 100%;
@@ -1357,6 +1521,7 @@ details p {
   .compare-grid,
   .demo-flow,
   .ledger-rail,
+  .contact-cards,
   .security-list {
     grid-template-columns: 1fr;
   }
@@ -1378,6 +1543,30 @@ details p {
   .demo-section,
   .comparison-section {
     padding-bottom: 72px;
+  }
+
+  .contact-hero {
+    min-height: 620px;
+  }
+
+  .contact-hero-content {
+    padding: 50px 0 70px;
+  }
+
+  .contact-directory {
+    padding: 72px 0;
+  }
+
+  .contact-address {
+    grid-column: auto;
+  }
+
+  .contact-card {
+    min-height: auto;
+  }
+
+  .contact-action {
+    margin-bottom: 72px;
   }
 
   .demo-status {
