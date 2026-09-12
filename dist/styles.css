@@ -812,6 +812,13 @@ p {
 
 .code-window {
   overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(226, 229, 228, 0.94)),
+    var(--off-white);
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(0, 229, 117, 0.18);
 }
 
 .code-bar {
@@ -820,9 +827,9 @@ p {
   align-items: center;
   min-height: 42px;
   padding: 0 14px;
-  color: var(--platinum-grey);
-  background: var(--charcoal);
-  border-bottom: 1px solid var(--gunmetal);
+  color: var(--vault-black);
+  background: linear-gradient(180deg, var(--pure-white), var(--light-silver));
+  border-bottom: 1px solid rgba(10, 10, 10, 0.18);
 }
 
 .code-bar span {
@@ -834,6 +841,14 @@ p {
 
 .code-bar span:first-child {
   background: var(--neon-emerald);
+}
+
+.code-bar span:nth-child(2) {
+  background: var(--gunmetal);
+}
+
+.code-bar span:nth-child(3) {
+  background: var(--platinum-grey);
 }
 
 .code-bar strong {
@@ -848,11 +863,19 @@ p {
   margin: 0;
   padding: 18px;
   overflow: auto;
-  color: var(--emerald-light);
+  color: var(--vault-black);
+  background:
+    linear-gradient(90deg, rgba(0, 229, 117, 0.10), transparent 42%),
+    var(--off-white);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.86rem;
+  font-weight: 650;
   line-height: 1.7;
   white-space: pre-wrap;
+}
+
+.code-window code {
+  color: #07110d;
 }
 
 .ledger-rail {
