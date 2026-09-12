@@ -35,6 +35,7 @@
       <nav class="site-nav" id="site-nav" data-nav>
         <a href="#standard">Standard</a>
         <a href="#verify">Verify</a>
+        <a href="#demo">Demo</a>
         <a href="#market">Market</a>
         <a href="#partners">Partners</a>
         <a class="nav-cta" href="#contact">Partner With Fanfair</a>
@@ -175,6 +176,101 @@
             <h3>Confirm Authenticity</h3>
             <p>Buyers, donors, collectors, and partners can see what the item is and how it entered the registry.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="demo-section section-shell" id="demo" aria-labelledby="demo-title">
+        <div class="demo-intro">
+          <p class="section-kicker">See how it works</p>
+          <h2 id="demo-title">Watch a collectible become a verifiable record.</h2>
+          <p>
+            Run the demo to see how Fanfair captures item evidence, fingerprints the record, writes a ledger
+            event, and returns a certificate buyers can inspect.
+          </p>
+          <div class="demo-actions">
+            <button class="button button-primary" type="button" data-demo-run>Run Demo</button>
+            <button class="button button-secondary" type="button" data-demo-reset>Reset</button>
+          </div>
+        </div>
+        <div class="demo-console" data-demo>
+          <div class="demo-status">
+            <span class="status-pill" data-demo-status>Ready</span>
+            <span data-demo-progress-label>0% complete</span>
+          </div>
+          <div class="demo-progress" aria-hidden="true">
+            <span data-demo-progress></span>
+          </div>
+
+          <div class="demo-workbench">
+            <div class="demo-item-card">
+              <div class="demo-seal" aria-hidden="true">F</div>
+              <p class="demo-item-label" data-demo-item-label>Signed game ball</p>
+              <p data-demo-description>
+                Serialized seal is waiting for intake photos, condition notes, and provenance evidence.
+              </p>
+              <div class="demo-token">
+                <span>Certificate ID</span>
+                <strong data-demo-cert>FF-READY</strong>
+              </div>
+            </div>
+
+            <div class="demo-flow" aria-label="Fanfair verification demo steps">
+              <button class="is-active" type="button" data-demo-step="0">
+                <span>01</span>
+                Intake
+              </button>
+              <button type="button" data-demo-step="1">
+                <span>02</span>
+                Inspect
+              </button>
+              <button type="button" data-demo-step="2">
+                <span>03</span>
+                Fingerprint
+              </button>
+              <button type="button" data-demo-step="3">
+                <span>04</span>
+                Ledger
+              </button>
+              <button type="button" data-demo-step="4">
+                <span>05</span>
+                Certificate
+              </button>
+            </div>
+          </div>
+
+          <div class="code-window">
+            <div class="code-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <strong>fanfair-registry.demo</strong>
+            </div>
+            <pre aria-live="polite"><code data-demo-code>await fanfair.ready()
+// Select "Run Demo" to activate the registry workflow.</code></pre>
+          </div>
+
+          <div class="ledger-rail" aria-label="Simulated registry events">
+            <div class="ledger-block is-active" data-ledger-block>
+              <strong>INTAKE</strong>
+              <span>standing by</span>
+            </div>
+            <div class="ledger-block" data-ledger-block>
+              <strong>SCAN</strong>
+              <span>queued</span>
+            </div>
+            <div class="ledger-block" data-ledger-block>
+              <strong>HASH</strong>
+              <span>queued</span>
+            </div>
+            <div class="ledger-block" data-ledger-block>
+              <strong>LEDGER</strong>
+              <span>queued</span>
+            </div>
+            <div class="ledger-block" data-ledger-block>
+              <strong>LIVE</strong>
+              <span>queued</span>
+            </div>
+          </div>
         </div>
       </section>
 
