@@ -128,24 +128,13 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: "Inter Tight", Inter, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: 0;
+  width: clamp(132px, 14vw, 176px);
 }
 
-.brand-mark {
-  display: grid;
-  width: 35px;
-  height: 35px;
-  place-items: center;
-  color: var(--vault-black);
-  font-weight: 900;
-  background: var(--lime);
-  border: 2px solid var(--metallic-silver);
-  box-shadow: 0 0 35px rgba(0, 229, 117, 0.55);
-  clip-path: polygon(50% 0, 89% 13%, 89% 54%, 50% 100%, 11% 54%, 11% 13%);
+.brand img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 18px rgba(0, 229, 117, 0.24));
 }
 
 .site-nav {
@@ -471,6 +460,7 @@ p {
 }
 
 .accent-card {
+  position: relative;
   color: var(--vault-black);
   background: var(--neon-emerald);
 }
@@ -478,6 +468,12 @@ p {
 .accent-card p,
 .accent-card .card-number {
   color: rgba(10, 10, 10, 0.76);
+}
+
+.card-logo {
+  width: min(170px, 72%);
+  margin-top: 34px;
+  opacity: 0.92;
 }
 
 .scan-lines {
@@ -817,7 +813,7 @@ details p {
 
 .footer-inner {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(140px, 1fr) auto 1fr;
   gap: 22px;
   align-items: center;
 }

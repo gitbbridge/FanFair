@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="460" viewBox="0 0 1800 460" role="img" aria-labelledby="title desc">
+<title id="title">Fanfair horizontal logo</title>
+<desc id="desc">Fanfair shield icon on the left with FANFAIR wordmark on the right. Transparent background.</desc>
+
+<defs>
+  <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="22%" stop-color="#BFC3C7"/>
+    <stop offset="48%" stop-color="#F7F7F7"/>
+    <stop offset="72%" stop-color="#8F9498"/>
+    <stop offset="100%" stop-color="#E6E6E6"/>
+  </linearGradient>
+
+  <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#00FF9D"/>
+    <stop offset="50%" stop-color="#00E575"/>
+    <stop offset="100%" stop-color="#00B86B"/>
+  </linearGradient>
+
+  <linearGradient id="fmetal" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="40%" stop-color="#C8CDD1"/>
+    <stop offset="60%" stop-color="#00E575"/>
+    <stop offset="100%" stop-color="#F5F5F5"/>
+  </linearGradient>
+</defs>
+
+<!-- Shield -->
+<g transform="translate(34,24)">
+  <!-- outer shield -->
+  <path d="M205 8 L370 76 L352 252 Q326 340 205 405 Q84 340 58 252 L40 76 Z"
+        fill="#0A0A0A" stroke="#0F0F0F" stroke-width="8"/>
+  <path d="M205 20 L355 82 L340 246 Q315 322 205 385 Q95 322 70 246 L55 82 Z"
+        fill="none" stroke="url(#silver)" stroke-width="22" stroke-linejoin="miter"/>
+  <path d="M205 48 L332 100 L319 236 Q298 302 205 356 Q112 302 91 236 L78 100 Z"
+        fill="none" stroke="url(#emerald)" stroke-width="14" stroke-linejoin="miter"/>
+  <path d="M205 63 L315 108 L304 229 Q285 287 205 334 Q125 287 106 229 L95 108 Z"
+        fill="#070A09"/>
+
+  <!-- Angular F monogram -->
+  <path d="M145 126 H274 L240 160 H178 V197 H245 L214 228 H178 V302 L145 270 Z"
+        fill="url(#fmetal)" stroke="#E7EAEC" stroke-width="3"/>
+  <path d="M178 160 H240 L225 176 H178 Z" fill="url(#emerald)" opacity="0.95"/>
+  <path d="M178 228 H214 L198 244 H178 Z" fill="url(#emerald)" opacity="0.95"/>
+</g>
+
+<!-- Wordmark -->
+<g transform="translate(475,0)">
+  <text x="0" y="285"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="200"
+        font-weight="700"
+        letter-spacing="10"
+        fill="#FFFFFF">FANFAIR</text>
+</g>
+</svg>

@@ -1,0 +1,3 @@
+.package-site.tmp.sh
+.sites-package-stage-*/
+*.tar.gz
