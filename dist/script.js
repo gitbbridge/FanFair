@@ -1,6 +1,24 @@
 const menuButton = document.querySelector("[data-menu-toggle]");
 const nav = document.querySelector("[data-nav]");
 
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+const scrollToPageTop = () => {
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  });
+};
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || performance.getEntriesByType("navigation")[0]?.type === "back_forward") {
+    scrollToPageTop();
+  }
+});
+
+window.addEventListener("popstate", scrollToPageTop);
+
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
