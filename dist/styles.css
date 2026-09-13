@@ -1308,6 +1308,126 @@ details p {
   justify-content: flex-end;
 }
 
+.contact-form-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding-bottom: 96px;
+}
+
+.contact-form-copy,
+.contact-form {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.contact-form-copy {
+  padding: clamp(28px, 4.4vw, 54px);
+  background:
+    linear-gradient(145deg, rgba(0, 229, 117, 0.09), transparent 42%),
+    var(--carbon-black);
+}
+
+.contact-form-copy h2 {
+  margin-bottom: 18px;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: clamp(22px, 3.4vw, 34px);
+  background:
+    linear-gradient(145deg, rgba(0, 229, 117, 0.08), transparent 48%),
+    var(--absolute-black);
+  border-color: rgba(0, 229, 117, 0.28);
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.form-row-full,
+.form-submit-row,
+.form-status {
+  grid-column: 1 / -1;
+}
+
+.form-row label {
+  color: var(--metallic-silver);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 14px;
+  color: var(--pure-white);
+  font: inherit;
+  font-size: 1rem;
+  background: rgba(23, 27, 26, 0.92);
+  border: 1px solid var(--gunmetal);
+  border-radius: var(--radius);
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.form-row textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  background: var(--charcoal);
+  border-color: rgba(0, 229, 117, 0.65);
+  box-shadow: 0 0 0 3px rgba(0, 229, 117, 0.14);
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: var(--platinum-grey);
+}
+
+.form-submit-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.form-note,
+.form-status {
+  margin: 0;
+  color: var(--platinum-grey);
+  font-size: 0.92rem;
+}
+
+.form-status {
+  min-height: 1.4em;
+}
+
+.form-status.is-success {
+  color: var(--emerald-light);
+}
+
+.form-status.is-error {
+  color: #ffb3b3;
+}
+
 .site-footer {
   padding: 48px 0;
   color: var(--platinum-grey);
@@ -1374,6 +1494,7 @@ details p {
   .verify-section,
   .demo-section,
   .contact-directory,
+  .contact-form-section,
   .contact-action,
   .market-wrap,
   .comparison-section,
@@ -1416,6 +1537,10 @@ details p {
 
   .contact-action-buttons {
     justify-content: flex-start;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
   }
 
   .demo-intro {
@@ -1557,12 +1682,21 @@ details p {
     padding: 72px 0;
   }
 
+  .contact-form-section {
+    padding-bottom: 72px;
+  }
+
   .contact-address {
     grid-column: auto;
   }
 
   .contact-card {
     min-height: auto;
+  }
+
+  .form-submit-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .contact-action {

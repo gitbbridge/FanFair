@@ -47,6 +47,50 @@ document.querySelectorAll(".faq-list details").forEach((item) => {
   });
 });
 
+const contactForm = document.querySelector("[data-contact-form]");
+
+if (contactForm instanceof HTMLFormElement) {
+  const status = document.querySelector("[data-contact-status]");
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      status?.classList.remove("is-success");
+      status?.classList.add("is-error");
+      if (status) {
+        status.textContent = "Please complete the required fields.";
+      }
+      return;
+    }
+
+    const data = new FormData(contactForm);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const interest = String(data.get("interest") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const subject = `Fanfair inquiry from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "Not provided"}`,
+      `Interest: ${interest}`,
+      "",
+      "Message:",
+      message
+    ].join("\n");
+
+    status?.classList.remove("is-error");
+    status?.classList.add("is-success");
+    if (status) {
+      status.textContent = "Opening your email app with the prepared inquiry.";
+    }
+
+    window.location.href = `mailto:blake@trustfanfair.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
 const demo = document.querySelector("[data-demo]");
 
 if (demo) {
