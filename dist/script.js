@@ -87,6 +87,14 @@ if (processCards.length) {
   };
 
   processCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+      card.style.setProperty("--glass-x", `${x.toFixed(2)}%`);
+      card.style.setProperty("--glass-y", `${y.toFixed(2)}%`);
+    });
     card.addEventListener("pointerenter", () => openProcessCard(card));
     card.addEventListener("pointerleave", () => closeProcessCard(card));
     card.addEventListener("focusin", () => openProcessCard(card));
