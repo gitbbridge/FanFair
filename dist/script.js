@@ -50,6 +50,8 @@ document.querySelectorAll(".faq-list details").forEach((item) => {
 const processCards = Array.from(document.querySelectorAll("[data-process-card]"));
 
 if (processCards.length) {
+  const defaultProcessCard = processCards[0];
+
   const closeProcessCards = (exceptCard) => {
     processCards.forEach((card) => {
       if (card === exceptCard) {
@@ -77,12 +79,25 @@ if (processCards.length) {
     }
   };
 
-  const closeProcessCard = (card) => {
+  const restoreDefaultProcessCard = () => {
+    openProcessCard(defaultProcessCard);
+  };
+
+  const closeProcessCard = (card, shouldRestoreDefault = false) => {
+    if (card === defaultProcessCard) {
+      restoreDefaultProcessCard();
+      return;
+    }
+
     card.classList.remove("is-preview-open");
     const video = card.querySelector("video");
 
     if (video instanceof HTMLVideoElement) {
       video.pause();
+    }
+
+    if (shouldRestoreDefault) {
+      restoreDefaultProcessCard();
     }
   };
 
@@ -96,15 +111,17 @@ if (processCards.length) {
       card.style.setProperty("--glass-y", `${y.toFixed(2)}%`);
     });
     card.addEventListener("pointerenter", () => openProcessCard(card));
-    card.addEventListener("pointerleave", () => closeProcessCard(card));
+    card.addEventListener("pointerleave", () => closeProcessCard(card, true));
     card.addEventListener("focusin", () => openProcessCard(card));
     card.addEventListener("focusout", (event) => {
       if (!card.contains(event.relatedTarget)) {
-        closeProcessCard(card);
+        closeProcessCard(card, true);
       }
     });
     card.addEventListener("click", () => openProcessCard(card));
   });
+
+  restoreDefaultProcessCard();
 }
 
 const contactForm = document.querySelector("[data-contact-form]");
