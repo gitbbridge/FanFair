@@ -47,6 +47,58 @@ document.querySelectorAll(".faq-list details").forEach((item) => {
   });
 });
 
+const processCards = Array.from(document.querySelectorAll("[data-process-card]"));
+
+if (processCards.length) {
+  const closeProcessCards = (exceptCard) => {
+    processCards.forEach((card) => {
+      if (card === exceptCard) {
+        return;
+      }
+
+      card.classList.remove("is-preview-open");
+      const video = card.querySelector("video");
+
+      if (video instanceof HTMLVideoElement) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  };
+
+  const openProcessCard = (card) => {
+    closeProcessCards(card);
+    card.classList.add("is-preview-open");
+    const video = card.querySelector("video");
+
+    if (video instanceof HTMLVideoElement) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  };
+
+  const closeProcessCard = (card) => {
+    card.classList.remove("is-preview-open");
+    const video = card.querySelector("video");
+
+    if (video instanceof HTMLVideoElement) {
+      video.pause();
+    }
+  };
+
+  processCards.forEach((card) => {
+    card.addEventListener("pointerenter", () => openProcessCard(card));
+    card.addEventListener("pointerleave", () => closeProcessCard(card));
+    card.addEventListener("focusin", () => openProcessCard(card));
+    card.addEventListener("focusout", (event) => {
+      if (!card.contains(event.relatedTarget)) {
+        closeProcessCard(card);
+      }
+    });
+    card.addEventListener("click", () => openProcessCard(card));
+  });
+}
+
 const contactForm = document.querySelector("[data-contact-form]");
 
 if (contactForm instanceof HTMLFormElement) {
